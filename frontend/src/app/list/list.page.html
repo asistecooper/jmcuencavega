@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Alumnos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let student of Students">
+      <ion-label>
+        <h2>{{student.name}}</h2>
+        <h3>{{student.datebirth}}</h3>
+        <h3>{{student.fathername}}</h3>
+        <h3>{{student.mothername}}</h3>
+        <h3>{{student.grade}}</h3>
+        <h3>{{student.section}}</h3>
+        <h3>{{student.dateadmission}}</h3>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/update/', student._id]">
+          <ion-icon name="create" style="zoom:1.5"></ion-icon>
+        </button>
+        <button ion-button clear (click)="removeStudent(student, i)">
+          <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
